@@ -1,0 +1,7 @@
+.github
+.stencil
+dist
+loader
+node_modules
+www
+package-lock.json

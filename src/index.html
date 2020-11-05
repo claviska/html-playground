@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>HTML Playground Demo</title>
+
+    <script type="module" src="/build/html-playground.esm.js"></script>
+    <script nomodule src="/build/html-playground.js"></script>
+
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css">
+
+    <style>
+      body {
+        padding: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+
+    <html-playground></html-playground>
+
+    <script>
+      const playground = document.querySelector('html-playground');
+
+      // Controls provide a configurable context for templates
+      playground.controls = [
+        { name: 'mode', type: 'select', value: 'ios', options: ['ios', 'md'] },
+        { name: 'label', type: 'text', value: 'Click me' },
+        { name: 'color', type: 'select', value: 'primary', options: ['primary', 'secondary', 'tertiary', 'success', 'warning', 'danger', 'light', 'medium', 'dark'] },
+        { name: 'fill', type: 'select', value: 'solid', options: ['solid', 'clear', 'outline'] },
+        { name: 'expand', type: 'select', value: '', options: ['', 'block', 'full'] },
+        { name: 'shape', type: 'select', value: '', options: ['', 'round'] },
+        { name: 'size', type: 'select', value: 'default', options: ['small', 'default', 'large'] },
+        { name: 'strong', type: 'boolean', value: false },
+        { name: 'disabled', type: 'boolean', value: false }
+      ];
+
+      // Templates use  templates provide access to the context (see https://github.com/janl/mustache.js#readme for syntax)
+      playground.template = `
+        <ion-button
+          type="button"
+          mode="{{mode}}"
+          color="{{color}}"
+          fill="{{fill}}"
+          expand="{{expand}}"
+          shape="{{shape}}"
+          size="{{size}}"
+          {{#strong}}strong{{/strong}}
+          {{#disabled}}disabled{{/disabled}}
+        >
+          {{label}}
+        </ion-button>
+      `;
+    </script>
+  </body>
+</html>
