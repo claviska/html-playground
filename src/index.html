@@ -39,6 +39,9 @@
 
       // Templates use  templates provide access to the context (see https://github.com/janl/mustache.js#readme for syntax)
       playground.template = `
+        <!-- Button color uses a global variable, so we need to include this for now -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css">
+
         <ion-button
           type="button"
           mode="{mode}"

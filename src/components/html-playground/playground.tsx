@@ -62,14 +62,9 @@ export class Playground {
   }
 
   render() {
-    // Inject the preview into the default slot
-    this.host.innerHTML = this.renderPreview();
-
     return (
       <div class="playground">
-        <div class="playground__preview">
-          <slot />
-        </div>
+        <div class="playground__preview" innerHTML={this.renderPreview()} />
         <div class="playground__controls">
           {this.controls.map(control => (
             <div class={`playground__control playground__control--${control.type}`}>

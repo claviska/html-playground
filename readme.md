@@ -1,8 +1,19 @@
 # HTML Playground
 
-A playground for your custom elements.
+A playground for your custom elements. Think Storybook knobs for your web components.
 
-🚧 This package is an experimental work in progress!
+- Provide a template
+- Define controls
+- A live preview is shown and updated as the user toggles controls
+
+Wishlist:
+
+- Fork Whiskers into a separate project with TypeScript + ES6
+- Make the preview area resizable
+- More control types
+- Polish up the UI
+
+🚧 Super early prototype — proceed with caution!
 
 ## Usage
 
