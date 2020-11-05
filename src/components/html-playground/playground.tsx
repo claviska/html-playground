@@ -1,5 +1,5 @@
-import { Component, Element, Prop, State, h } from '@stencil/core';
-import Mustache from 'mustache';
+import { Component, Element, Prop, h } from '@stencil/core';
+import { whiskers } from '../../utils/whiskers';
 
 export interface PlaygroundControl {
   name: string;
@@ -18,8 +18,6 @@ export interface PlaygroundControl {
 })
 export class Playground {
   @Element() host: HTMLElement;
-
-  @State() previewHTML = '';
 
   /**
    * One or more controls to provide to the playground. Each control has a name, type, and value. The { name: value }
@@ -45,7 +43,7 @@ export class Playground {
 
     let html = ';';
     try {
-      html = Mustache.render(this.template, context);
+      html = whiskers.render(this.template, context);
     } catch (err) {
       html = err;
     }
@@ -64,12 +62,12 @@ export class Playground {
   }
 
   render() {
-    const previewHTML = (this.host.innerHTML = this.renderPreview());
-
     return (
       <div class="playground">
         <div class="playground__main">
-          <div class="playground__preview" innerHTML={previewHTML} />
+          <div class="playground__preview" innerHTML={this.renderPreview()}>
+            <slot />
+          </div>
           <div class="playground__controls">
             {this.controls.map(control => (
               <div class={`playground__control playground__control--${control.type}`}>

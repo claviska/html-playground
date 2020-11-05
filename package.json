@@ -22,9 +22,7 @@
     "generate": "stencil generate"
   },
   "dependencies": {
-    "@stencil/core": "^2.0.1",
-    "@types/mustache": "^4.0.1",
-    "mustache": "^4.0.1"
+    "@stencil/core": "^2.0.1"
   },
   "author": "Cory LaViska",
   "repository": {
